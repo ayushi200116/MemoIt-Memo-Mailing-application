@@ -1,24 +1,24 @@
-# 🔒 Intelligent Security System With Machine Learning
+# 📧 MemoIt - Memo Mailing Application
 
 <div align="center">
-  <p><strong>Advanced multi-factor authentication system combining facial recognition and handwritten digit recognition for secure access control</strong></p>
+  <p><strong>A secure desktop application for composing, managing, and sending memos to employees with integrated email functionality</strong></p>
 </div>
 
 ---
 
 ## 📋 Overview
 
-The **Intelligent Security System** is a machine learning-powered application that provides multi-layer security through biometric authentication. It utilizes state-of-the-art computer vision techniques including facial recognition and handwritten digit recognition to ensure only authorized users can access the application.
+**MemoIt** is a user-friendly desktop application designed for organizations to efficiently compose and send memos to employees. The application features password-protected access, employee database management, and integrated email capabilities to streamline internal communications.
 
 ## ✨ Key Features
 
-- **👤 Face Recognition**: LBPH (Local Binary Patterns Histograms) facial recognition for user authentication
-- **✍️ Digit Recognition**: Handwritten digit recognition using deep learning (CNN)
-- **🔐 Multi-Factor Authentication**: Dual authentication methods for enhanced security
-- **📷 Real-Time Capture**: Live camera feed integration for face capture
-- **🎨 User-Friendly Interface**: Tkinter-based GUI with intuitive navigation
-- **🧠 Pre-Trained Models**: Ready-to-use trained models for immediate deployment
-- **📊 Dataset Generation**: Tools for creating training datasets
+- **🔐 Secure Access**: Password-protected login system for authorized personnel
+- **📧 Email Integration**: Send memos directly via email with subject and body content
+- **👥 Employee Management**: Add and manage employee records with ID, name, and email
+- **💾 Database Storage**: Persistent storage of employee information using database connectivity
+- **🎨 Intuitive GUI**: User-friendly Tkinter interface with logo branding
+- **📝 Multi-Page Navigation**: Seamless navigation between different application modules
+- **🔄 Session Management**: Login/Logout functionality
 
 ## 🛠️ Technology Stack
 
@@ -26,35 +26,9 @@ The **Intelligent Security System** is a machine learning-powered application th
 |-----------|-----------|
 | **Language** | Python 3 |
 | **GUI Framework** | Tkinter |
-| **Machine Learning** | TensorFlow, Keras |
-| **Computer Vision** | OpenCV |
-| **Face Recognition** | LBPH Face Recognizer |
-| **Digit Recognition** | CNN (Convolutional Neural Network) |
-| **Image Processing** | PIL, NumPy |
-
-## 🧠 Machine Learning Models
-
-### 1. Face Recognition Module
-
-**Technology**: LBPH Face Recognizer (OpenCV)
-
-- **Algorithm**: Local Binary Patterns Histograms
-- **Training**: Face dataset with labeled identities
-- **Features**:
-  - Real-time face detection using Haar Cascade Classifier
-  - Person identification with confidence score
-  - Threshold-based acceptance (confidence < 100)
-
-### 2. Digit Recognition Module
-
-**Technology**: CNN (Convolutional Neural Network)
-
-- **Framework**: TensorFlow/Keras
-- **Model File**: `DigitModel.h5`
-- **Input**: 28x28 handwritten digit images
-- **Output**: Digit classification (0-9)
-- **Application**: 4-digit PIN entry system
-- **Default PIN**: 6246
+| **Database** | MySQL/Database Connection Module |
+| **Email Service** | SMTP Integration |
+| **Image Processing** | Pillow (PIL) |
 
 ## 📦 Core Modules
 
@@ -62,239 +36,162 @@ The **Intelligent Security System** is a machine learning-powered application th
 
 | Module | Purpose |
 |--------|---------|
-| **Main.py** | Application entry point with screen management |
-| **FaceRecognizerModule.py** | Face recognition authentication logic |
-| **DigitRecognizerModule.py** | Digit recognition prediction module |
-| **faceDetector.py** | Face detection and model training |
-| **datasetCreation.py** | Dataset creation utilities |
-| **DigitModel.h5** | Pre-trained digit recognition model |
+| **MainApp.py** | Application entry point with frame management |
+| **Pages.py** | Multi-page UI implementation (6 different pages) |
+| **databaseconnection.py** | Database connectivity and employee management |
+| **emailsenderapp.py** | Email sending functionality |
 
-### Application Screens
+### UI Pages
 
-1. **StartScreen**: Authentication method selection
-2. **FaceRecognitionScreen**: Face capture and verification
-3. **DigitRecognitionScreen**: Handwritten digit entry
-4. **ApplicationEntryScreen**: Success screen (authorized access)
-5. **WrongAuthenticationScreen**: Failed authentication screen
+1. **StartPage**: Password authentication screen
+2. **PageOne**: Main menu (Send Memo, Add Employee, Logout)
+3. **WrongPasswordPage**: Error handling for incorrect passwords
+4. **PageTwo**: Employee selection dropdown
+5. **PageThree**: Add new employee form
+6. **PageFour**: Memo composition interface
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.7+
-- Webcam/Camera for face recognition
+- Python 3.6+
+- MySQL Database
 - pip (Python package manager)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ayushi200116/Intelligent-Security-System-With-Machine-Learning.git
-   cd Intelligent-Security-System-With-Machine-Learning
+   git clone https://github.com/ayushi200116/MemoIt-Memo-Mailing-application.git
+   cd MemoIt-Memo-Mailing-application
    ```
 
 2. **Install dependencies**
    ```bash
-   pip install tensorflow keras opencv-python pillow numpy tkinter
+   pip install pillow
    ```
 
-3. **Verify model files**
-   - Ensure `DigitModel.h5` is present in the root directory
+3. **Configure Database**
+   - Update database connection details in `databaseconnection.py`
+   - Ensure MySQL database is running
+
+4. **Set up Password**
+   - Configure password in `Passwords.txt`
 
 ### Running the Application
 
 ```bash
-python Main.py
+python MainApp.py
 ```
 
 ## 📁 Project Structure
 
 ```
-Intelligent-Security-System-With-Machine-Learning/
-├── Main.py                         # Application entry point
-├── FaceRecognizerModule.py          # Face recognition module
-├── DigitRecognizerModule.py         # Digit recognition module
-├── faceDetector.py                  # Face detection and training
-├── datasetCreation.py               # Dataset creation utility
-├── DigitModel.h5                    # Pre-trained digit model
-├── Digit Recognition/               # Digit recognition dataset
-├── digit.jpg                        # Sample digit image
+MemoIt-Memo-Mailing-application/
+├── MainApp.py                  # Application entry point
+├── Pages.py                    # UI page definitions
+├── databaseconnection.py        # Database operations
+├── emailsenderapp.py            # Email functionality
+├── PageLogo.png                 # Small application logo
+├── PageLogoLarge.png            # Large memo composition logo
+├── Passwords.txt                # Password storage
 └── README.md
 ```
 
-## 🔐 Authentication Flow
+## 🔧 Configuration
+
+### Database Setup
+
+Edit `databaseconnection.py` with your database credentials:
+
+```python
+# Database connection parameters
+host = "localhost"
+user = "root"
+password = "your_password"
+database = "your_database"
+```
+
+### Password Configuration
+
+Update `Passwords.txt` with your desired password.
+
+### Email Configuration
+
+Configure SMTP settings in `emailsenderapp.py`:
+
+```python
+# Email service credentials
+sender_email = "your_email@gmail.com"
+sender_password = "your_app_password"
+smtp_server = "smtp.gmail.com"
+smtp_port = 587
+```
+
+## 📊 Application Workflow
 
 ```
 Start Application
       ↓
-Select Authentication Method
-  ├─ Face Recognition Path
-  │    ├─ Capture Face
-  │    ├─ Compare with Database
-  │    └─ Verify Identity
-  │
-  └─ Digit Recognition Path
-       ├─ Draw 4 Digits
-       ├─ Recognize Each Digit
-       └─ Compare with PIN (6246)
+Enter Password → Authenticate
       ↓
-  ├─ Authentication Success → Application Access
-  └─ Authentication Failed → Retry/Exit
-```
-
-## 👥 Face Recognition Details
-
-### Face Detection Process
-
-1. **Image Capture**: Read from webcam in real-time
-2. **Face Detection**: Haar Cascade Classifier identifies faces
-3. **Face Extraction**: Crop and resize face region (130x100)
-4. **Recognition**: LBPH model predicts identity
-5. **Verification**: Confidence score evaluation
-
-### Configuration
-
-```python
-# Face parameters
-width = 130          # Face crop width
-height = 100         # Face crop height
-confidence_threshold = 100  # Confidence score threshold
-```
-
-### Dataset Creation
-
-To create a face dataset:
-
-```bash
-python datasetCreation.py
-```
-
-Follow the prompts to:
-- Enter user ID and name
-- Capture multiple face samples
-- Build training dataset
-
-## ✍️ Digit Recognition Details
-
-### Drawing Interface
-
-- **Canvas Size**: 300x300 pixels
-- **Drawing Tool**: Mouse-based drawing with 8px radius
-- **Input Method**: Draw digits one by one
-- **Recognition**: CNN model classifies each stroke
-- **PIN Format**: 4-digit sequence
-
-### Training the Model
-
-To retrain the digit recognition model:
-
-1. Prepare MNIST dataset or custom digits
-2. Use TensorFlow/Keras to train CNN
-3. Save model as `DigitModel.h5`
-
-Example model architecture:
-```python
-model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
-    MaxPooling2D((2, 2)),
-    Conv2D(64, (3, 3), activation='relu'),
-    MaxPooling2D((2, 2)),
-    Conv2D(64, (3, 3), activation='relu'),
-    Flatten(),
-    Dense(64, activation='relu'),
-    Dense(10, activation='softmax')
-])
-```
-
-## ⚙️ System Configuration
-
-### Face Recognition Settings
-
-Edit `faceDetector.py` to modify:
-
-```python
-haar_file = 'haarcascade_frontalface_default.xml'  # Haar cascade file
-datasets = 'datasets'                               # Dataset folder
-(width, height) = (130, 100)                        # Face dimensions
-```
-
-### Digit PIN Configuration
-
-Modify the PIN in `Main.py`:
-
-```python
-if self.passwd == "6246":  # Change this PIN
-    # Authentication successful
+Main Menu
+  ├─ Send Memo
+  │    ├─ Select Employee
+  │    └─ Compose & Send Email
+  ├─ Add Employee
+  │    ├─ Enter ID, Name, Email
+  │    └─ Save to Database
+  └─ Logout → Return to Login
 ```
 
 ## 🎯 Use Cases
 
-- **Secure Application Access**: Prevent unauthorized access
-- **Workplace Security**: Employee authentication at facility entrances
-- **Financial Services**: Transaction verification
-- **Biometric Systems**: Multi-factor authentication
-- **Smart Home Security**: Face-based access control
-- **Research & Development**: ML/AI project demonstration
+- **HR Communications**: Send policy updates and announcements
+- **Management Memos**: Distribute important notices to staff
+- **Meeting Reminders**: Schedule and send meeting notifications
+- **Employee Onboarding**: Add new employees to the system
+- **Internal Messaging**: Secure inter-departmental communication
 
-## 📊 Performance Metrics
+## 📋 Database Schema
 
-| Module | Accuracy | Speed |
-|--------|----------|-------|
-| Face Recognition | ~85-90% | Real-time |
-| Digit Recognition | ~95%+ | <100ms per digit |
-| Overall Authentication | ~90%+ | 2-5 seconds |
+**Employees Table Example:**
+```
+ID    | Name          | Email              | Department
+------|---------------|--------------------|-----------
+E001  | John Doe      | john@company.com   | IT
+E002  | Jane Smith    | jane@company.com   | HR
+```
 
 ## ⚠️ Important Notes
 
-- Ensure good lighting for optimal face recognition
-- Train with multiple facial angles and expressions
-- Protect trained models and datasets
-- Use secure PIN combinations
-- Regularly update datasets for accuracy
+- Ensure MySQL database is running before launching the application
+- Store credentials securely, do not commit sensitive data
+- Use app-specific passwords for email accounts
+- Regularly backup employee database
 
 ## 🐛 Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Camera Not Detected | Check camera connection and permissions |
-| Poor Face Recognition | Improve lighting, train with more samples |
-| Digit Recognition Fails | Ensure clear handwriting, check model file |
-| GUI Not Responding | Restart application, check system resources |
-| Model File Missing | Verify DigitModel.h5 exists in root directory |
-
-## 📈 Future Enhancements
-
-- [ ] Iris recognition integration
-- [ ] Voice authentication module
-- [ ] Fingerprint recognition
-- [ ] Mobile application version
-- [ ] Cloud-based model updates
-- [ ] Advanced anti-spoofing detection
-- [ ] Real-time monitoring dashboard
-- [ ] Audit logging system
-
-## 📚 References
-
-- [OpenCV Face Detection](https://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection_in_videos.html)
-- [LBPH Face Recognizer](https://docs.opencv.org/master/df/d25/classcv_1_1face_1_1LBPHFaceRecognizer.html)
-- [TensorFlow/Keras MNIST](https://www.tensorflow.org/datasets/catalog/mnist)
-- [Haar Cascades](https://github.com/opencv/opencv/tree/master/data/haarcascades)
+| Database Connection Error | Verify MySQL is running and credentials are correct |
+| Email Not Sending | Check SMTP settings and verify app password |
+| GUI Not Displaying | Ensure Tkinter and Pillow are properly installed |
+| Image Not Loading | Verify PageLogo.png and PageLogoLarge.png exist in root directory |
 
 ## 📝 License
 
-This project is provided as-is for educational and security research purposes.
+This project is provided as-is for educational and organizational use.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Areas for improvement:
-- Model optimization
-- Additional authentication methods
-- Performance enhancements
-- Security improvements
-- Documentation
+Contributions and improvements are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
 
 ---
 
 <div align="center">
-  <p>Advanced Security Through Intelligent Machine Learning 🔐</p>
+  <p>Built to streamline internal communications ❤️</p>
 </div>
